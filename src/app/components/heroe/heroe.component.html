@@ -1,0 +1,24 @@
+
+<h2>{{hero[0].nombre}} <small>{{hero[0].aparicion | date:'dd-MM-yyyy'}} </small></h2>
+<div class="row">
+    <div class="col-md-4  " >
+        <img src="{{hero[0].img}}" alt=".." srcset="" class="rounded-circle bg-primary img-fluid">
+    </div>
+    <div class="col-md-8 w-100 ">
+        <h3>{{hero[0].nombre}}</h3>
+        <hr>
+   <p>{{hero[0].bio}}</p>
+  <hr>
+ <br>
+    <div *ngIf="hero[0].casa==='Marvel'" class="mx-auto">
+        <img src="assets/img/marvel.png" alt=".." srcset="" class="mx-auto d-block" style="width: 300px;">
+  
+   </div>
+   <div *ngIf="hero[0].casa==='DC'"  class="tex-center">
+    <img src="assets/img/dc.png" class="mx-auto d-block" alt=".." srcset=""  style="width: 300px;">
+
+</div>
+
+    </div>
+    
+</div>
