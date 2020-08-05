@@ -2,7 +2,32 @@
 ![images](heroes1.png)
 ![images](heroes2.png)
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
+## Nota
+ No hay necesidad de crear otro componente donde copiemos el mismo código, se puede usar el código de la clase heroes y agregarle una ruta con un parametro, ese parametro va a ser lo que buscamos dentro de la navbar. En el constructor de heroes ahora debemos hacer esto :
+ 
+             constructor(private heroesService: HeroesService,
+              private actRoute : ActivatedRoute,
+              private router : Router) {
 
+                //console.log("Estoy en el constructor");
+
+               this.actRoute.params.subscribe(params =>{
+                  this.list = params['heroe'];
+                  if(this.list == null)
+
+                    this.heroes= this.heroesService.getHeroes();
+
+                  else
+
+                    this.heroes = this.heroesService.searchHeroes(this.list);
+
+                });
+
+                console.log(this.list);
+
+
+
+               }
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
